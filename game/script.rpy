@@ -225,8 +225,8 @@ label start:
     scene classroom
     call Ritwik_Player_Convertation
     call Ritwik_Player_Trina_Convertation
-    # call Situation2
-    # "Nothing much happens rest of the day, and its time to go back home."
+    call Situation2
+    "Nothing much happens rest of the day, and its time to go back home."
     call episode_2
 
     return
