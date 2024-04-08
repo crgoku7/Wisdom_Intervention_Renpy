@@ -6,6 +6,7 @@ init python:
     import urllib.parse
     import os
     import json
+
     class Player_class():
         def __init__(self):
             self.name = "Player"
@@ -35,8 +36,41 @@ init python:
         def change_mood(self, newmood):
             self.mood = newmood
             renpy.notify(f"Mood changed to {newmood}")
-        
-        
+
+    # Function to send player data and file to the FastAPI server
+    def send_data_to_server(player_name, haircolor, eyecolor, headcolor):
+        try:
+            # Prepare the data to be sent
+            data = {
+                'player_name': player_name,
+                'haircolor': haircolor,
+                'eyecolor': eyecolor,
+                'headcolor': headcolor
+            }
+            data_json = json.dumps(data).encode("utf-8")
+
+
+            renpy.say('s',"Before Request")
+            # Construct the HTTP request
+            req = urllib.request.Request('http://localhost:8000/upload/', data=data_json, method='POST')
+            req.add_header('Content-Type', 'application/json')
+
+
+            # Send the request
+            renpy.say('s',"Request Sent")
+            with urllib.request.urlopen(req) as response:
+
+                server_response = response.read().decode('utf-8')
+                # Process server response as needed
+            
+        except Exception as e:
+            # s = str(e)
+            # renpy.say("Error:", s)
+            pass
+    #"tushar", "black", 'brown', "fair"
+    #player_name, haircolor, eyecolor, headcolor
+            
+            
 
     def get_current_time():
         global current_time
@@ -75,43 +109,12 @@ init python:
                 headcolor = headcolors[(headcolors.index(headcolor)-1)%len(headcolors)]
 
         renpy.retain_after_load()
-
-    
-
-    # Function to send player data and file to the FastAPI server
-    def send_data_to_server(player_name, haircolor, eyecolor, headcolor):
-        try:
-            # Prepare the data to be sent
-            data = {
-                'player_name': player_name,
-                'haircolor': haircolor,
-                'eyecolor': eyecolor,
-                'headcolor': headcolor
-            }
-            data_json = json.dumps(data).encode("utf-8")
-
-
-            renpy.say('s',"Before Request")
-            # Construct the HTTP request
-            req = urllib.request.Request('http://localhost:8000/upload/', data=data_json, method='POST')
-            req.add_header('Content-Type', 'application/json')
-
-
-            # Send the request
-            renpy.say('s',"Request Sent")
-            with urllib.request.urlopen(req) as response:
-
-                server_response = response.read().decode('utf-8')
-                # Process server response as needed
-            
-        except Exception as e:
-            # s = str(e)
-            # renpy.say("Error:", s)
-            pass
-    #"tushar", "black", 'brown', "fair"
-    #player_name, haircolor, eyecolor, headcolor
-    
+        
     main_player = Player_class()
+    
+
+    
+    
 
 
 
@@ -197,6 +200,8 @@ label look_mirror:
     "Hmmm"
 
 label start:
+
+    default main_player = Player_class()
     $player_name = "Player"
     $current_time = 450
     $brushed = False

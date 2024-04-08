@@ -1,0 +1,36 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+The label Sit_ritwik is defined twice, at File "game/bus_interactions.rpyc", line 1:
+
+and File "game/soepisode1.rpy", line 180:
+label Sit_ritwik:
+
+
+The label Sit_shreya is defined twice, at File "game/bus_interactions.rpyc", line 19:
+
+and File "game/soepisode1.rpy", line 198:
+label Sit_shreya:
+
+
+The label Ritwik_Player_Convertation is defined twice, at File "game/Before_Class.rpyc", line 3:
+
+and File "game/soepisode1.rpy", line 245:
+label Ritwik_Player_Convertation:
+
+
+The label Ritwik_Player_Trina_Convertation is defined twice, at File "game/Before_Class.rpyc", line 27:
+
+and File "game/soepisode1.rpy", line 269:
+label Ritwik_Player_Trina_Convertation:
+
+
+The label Situation2 is defined twice, at File "game/Before_Class.rpyc", line 43:
+
+and File "game/soepisode1.rpy", line 285:
+label Situation2:
+
+
+Ren'Py Version: Ren'Py 8.1.3.23091805
+Tue Apr  9 03:10:02 2024

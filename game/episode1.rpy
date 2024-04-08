@@ -1,3 +1,4 @@
+
 label episode_1:
     scene room
     "{b}{cps=50}Triiiiiiiiiing.....{/cps}" 
