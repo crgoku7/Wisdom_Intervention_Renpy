@@ -212,6 +212,11 @@ label start:
         'You find that the School Gates are closed'
         p "Excuse me,I'am sorry for being late, its my first day.."
         p "Can you please open the gates?"
+        "Guard" "What is your name kid?"
+        p "My name is ..."
+        $player_name = renpy.input("What is your name?")
+        "The guard writes your name in his Register..."
+        define p = Character("[player_name]")
         "Guard" "Hmm, I'll let you off today, since its the first day, But don't be late again"
         "You quickly rush inside, and make your way towards the assembly area."
         
