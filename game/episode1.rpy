@@ -57,13 +57,16 @@ label episode_1:
         "You head towards the assembly area."
 
     call Headmaster_Speech
-
+    $current_time = 510
     scene classroom
     "You move out of the assembly hall, and try to find your class."
     call Ritwik_Player_Convertation
     call Ritwik_Player_Trina_Convertation
+    $current_time = 720
     call Situation2
     "Nothing much happens rest of the day, and its time to go back home."
+    $current_time = 840
+    call freeroam
     call episode_2
 
     return
@@ -184,11 +187,11 @@ label Sit_ritwik:
     "The boy notices your interest"
     "Boy" "Are you a new student?"
     p "Ah! yes"
-    r "Hi, I am Ritwik, I'am in grade 7th"
+    r "Hi, I am Ritwik, I'am in grade 9th"
     p "Hi my name is.."
     $player_name = renpy.input("What is your name?")
     define p = Character("[player_name]")
-    p "[player_name], I'll also be joining in grade 7th"
+    p "[player_name], I'll also be joining in grade 9th"
     $main_player.change_npc_rel("Ritwik", 10)
 
     #Personality Questions come here
@@ -209,9 +212,9 @@ label Sit_shreya:
     p "Yes, I am a new student, my name is.."
     $player_name = renpy.input("What is your name?")
     define p = Character("[player_name]")
-    p "[player_name], I'll be joining in grade 7th, and you are?"
-    s "Oh! I am Shreya, I'm also in 7th grade"
-    $main_player.change_npc_rel("Shreys", 10)
+    p "[player_name], I'll be joining in grade 9th, and you are?"
+    s "Oh! I am Shreya, I'm also in 9th grade"
+    $main_player.change_npc_rel("Shreya", 10)
 
 
     #Personality Questions come here
@@ -246,7 +249,7 @@ label Ritwik_Player_Convertation:
     r " Hey, are you lost?"
     p "Yes, it seems I don't know where to go."
     r "Which class are you in?"
-    p "7B"
+    p "9B"
     r "I am in the same class. Its this way, let’s go."
     # They both walk towards the class.
     
@@ -293,6 +296,8 @@ label Situation2:
     menu:
         "Laugh Along":
             p 'Hahahaha'
+            p "Nice one man."
+            r "You'll be laughing a lot more in my company."
             $main_player.change_npc_rel("Ritwik", 5)
         "What a lame joke":
             p "Hmm, ok and?"
@@ -301,6 +306,8 @@ label Situation2:
     r "Oh, anyways, look whose over there, Ms. Shy-reya"
     "The girl looks towards [r] and ignores him"
     r "What happened Ms. Shy shy not in the mood to say anything?"
+    r "You know Ms. Shy-reya here doesn't like to talk much."
+    r "Isn't that right Ms. Shhhh-reya"
 
     menu:
         "Laugh along with Ritwik":
@@ -323,7 +330,7 @@ label Situation2:
                 "Shreya looks towards you relief"
 
             else:
-                r'I was just having some fun, chill man'
+                r 'I was just having some fun, chill man'
                 p 'That is not the way you have fun, you should apologise to her.'
                 r "Wha-, man, I, I am sorry Shreya, didn't mean to hurt you."
                 "Shreya looks towards you relief"

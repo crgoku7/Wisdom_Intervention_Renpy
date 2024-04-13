@@ -178,14 +178,52 @@ screen player_select:
 
     imagebutton idle "UI/finish.png" align(0.5,0.9) action Return()
     
-screen player_profile:
-    vbox:
-        #add "player" at half_size align(0.5,0.5)
-        text "Strength: [main_player.stats[Strength]]"
-        text "Intelligence: [main_player.stats[Intelligence]]"
-        text "Charisma: [main_player.stats[Charisma]]"
+# ... your existing code ...
 
-        imagebutton idle "UI/finish.png" align(0.5,0.9) action Return()
+# ... your existing code ...
+
+# Define the player_profile screen
+screen player_profile:
+    modal True
+    # Background image (optional)
+    # image bg = "path/to/background.jpg"
+    frame:
+        xalign 0.5 yalign 0.25 
+        # Create sections using vbox
+        vbox:  # Notice the colon after vbox
+            # Player Info Section
+            hbox:
+                textbutton f"Name: {main_player.name}"
+                textbutton f"Age: 14 Years Old"
+                # Add a birth_year variable to your Player_class and initialize it in the init function
+            label "Player Info"
+            
+            # Space between sections
+            #ypad=10
+
+            # Player Stats Section
+            vbox:
+                textbutton f"Strength: {main_player.stats['Strength']}"
+                textbutton f"Intelligence: {main_player.stats['Intelligence']}"
+                textbutton f"Charisma: {main_player.stats['Charisma']}"
+            label "Stats"
+        
+            # Space between sections
+
+            # Player Relations Section
+            vbox:
+            # Loop through NPC relations and display their names and affection points
+                for npc_name in main_player.npc_rel.keys():
+                    textbutton f"{npc_name}: {main_player.npc_rel[npc_name]}"
+                label "Relations"
+            textbutton "Close":
+                action Hide("player_profile")
+
+    # Center the sections on screen
+    # anchor:
+    #     vcenter vbox_sections  # This line should refer to the vbox itself, not vbox_sections
+
+
 
 
 #image room = im.Scale("room.png", 1280, 720)
@@ -199,9 +237,12 @@ label look_mirror:
     show player at player_transform
     "Hmmm"
 
+default main_player = Player_class()
+default tutorial_complete = 0
+
 label start:
 
-    default main_player = Player_class()
+    
     $player_name = "Player"
     $current_time = 450
     $brushed = False

@@ -1,4 +1,5 @@
 label episode_2:
+    $current_time = 480
     scene classroom
     "As the trio enters the classroom, they notice the students are divided into various groups."
     show rich_kids
