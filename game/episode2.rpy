@@ -1,31 +1,37 @@
 label episode_2:
     $current_time = 480
     scene classroom
-    "As the trio enters the classroom, they notice the students are divided into various groups."
+    "You reach the class on time, with Ritwik and Trina."
+    "You can hear all kinds of discussions taking place."
+    "You look around for a place to sit."
     show rich_kids
-    "There are the rich kids, flaunting their expensive gadgets and designer clothes."
+    "One group of students, all flaunting thier new gadget and accessories."
+    "They all seem to be wearing branded shoes and watches."
     show nerdy-kids
-    "The nerds, engrossed in their books and intellectual discussions."
+    "Another group in engrossed in academic discussions."
+    "They seem to be discussing about the achievments to Newton and Einstien."
     show sports-kids
-    "And the sports enthusiasts, energetically discussing the latest games and their own athletic exploits."
+    "Lastly, you catch the talks about the lastest sports matches going around in another group."
+    "They all seem to be pretty enthusiactic about sports, some looking pretty atheletic."
     scene classroom
-    "The trio looks at each other, unsure of where to go."
-    p "Where should we go?"
+    "Unsure where to sit, you look at Ritwik and Trina"
+    r "So, where do you think we should sit?"
 
     menu:
-        "Join the rich kids":
+        "Sit with the cool kids":
             $ group = "rich"
-            p "Let's try mingling with the rich kids."
+            p "Let's try mingling with the rich kids. Thier gadgets look pretty cool."
+
             "The trio heads over to the group of rich kids, trying to fit in."
             jump episode_2_rich
 
-        "Join the nerds":
+        "Sit with the nerds":
             $ group = "nerds"
             p "Let's join the nerds. We might learn something new."
             "The trio heads over to the group of nerds, ready to engage in intellectual discussions."
             jump episode_2_nerds
 
-        "Join the sports enthusiasts":
+        "Sit the sports geeks":
             $ group = "sports"
             p "Let's join the sports enthusiasts. We could use some physical activity."
             "The trio heads over to the group of sports enthusiasts, eager to talk about their favorite games."
@@ -37,7 +43,7 @@ label episode_2_rich:
     p "Hi, can we join you?"
     "The rich kids glance at each other before one of them nods."
 
-    jump lunch_break
+    jump episode_2_rich_conversation
 
 label episode_2_nerds:
     scene nerdy-kids
@@ -45,7 +51,7 @@ label episode_2_nerds:
     p "Hey, mind if we join you?"
     "One of the nerds looks up, pushes up their glasses, and nods."
 
-    jump lunch_break
+    jump episode_2_nerds_conversation
 
 label episode_2_sports:
     scene sports-kids
@@ -53,11 +59,70 @@ label episode_2_sports:
     p "Can we join you guys?"
     "One of the sports enthusiasts grins and pats a seat next to them."
    
+    jump episode_2_sports_conversation
+
+
+
+label episode_2_rich_conversation:
+    scene rich_kids
+    "As you sit with the rich kids, you try to get into thier conversation."
+    "Student 1" "Dude, who do you think the dance team captain is gonna be this year."
+    "Student 2" "Don't know man, but Samir and Maira both are pretty good, should be either or them"
+    "Student 1" "Yeah!, both of them are pretty dope, didn't come to class today did they?"
+    "Student 2" "Yeah, I dont' see them."
+    "Hmmm, Samir and Maira is it, seem to be pretty popular."
+    
+
+    "Nothing much happens and its soon time for the Lunch Break"
+
     jump lunch_break
+
+label episode_2_nerds_conversation:
+    scene nerdy-kids
+    "Among the nerds, all of them are talking about different Maths and Science concepts."
+    "Student 1" "What's the smallest bone in the human body?"
+    "Student 2" "Its the stapes bone in the ear, 2.8 millimeters long."
+    "Student 2" "My turn, what's the longest?"
+    p "I know that, its.."
+    menu:
+        "Tibia":
+            "The boy looks at you with indifference."
+            "Student 2" "Wrong."
+        "Femur":
+            "Student 2" "Hmm, Correct."
+            "You feel happy inside, giving the correct answer."
+        "Fibula":
+            "The boy looks at you with indifference."
+            "Student 2" "Wrong."
+        "Humerus":
+            "The boy looks at you with indifference."
+            "Student 2" "Wrong."
+
+    "Nothing much happens and its soon time for the Lunch Break"
+
+    
+
+    jump lunch_break
+
+label episode_2_sports_conversation:
+    scene sports-kids
+    "Sitting with the sports enthusiasts, you realise that these people can talk about sports non-stop."
+    "Student 1" "Hey, the sports trails are coming soon right?"
+    "Student 2" "Yeah, they happen in a week or two I think."
+    "Student 1" "Man, I hope I get into the team."
+    "Student 2" "Well, getting into the team is not that tough, let's see who'll be the sports captain."
+    "Hmm looks like becoming the sports captain in a big deal."
+    "Nothing much happens and its soon time for the Lunch Break"
+
+
+    jump lunch_break
+
+
+
 
 label lunch_break:
     scene cafeteria
-    "During the lunch break, the cafeteria buzzes with students chatting and enjoying their meals. You spot a fellow classmate, shy and reserved, having a conversation with some students from a different house."
+    "During the lunch break, the cafeteria buzzes with students chatting and enjoying their meals."
 
     show pushy-students
     "The students from the other house seem full of energy, unaware that they are being pushy in their conversation."

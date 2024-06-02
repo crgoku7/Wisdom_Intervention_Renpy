@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/freeroam.rpy", line 17: expected 'image_name_component' not found.
-    hide('say')
-        ^
+File "game/freeroam.rpy", line 8: The hotspot statement is not a valid child of the imagebutton statement.
+    hotspot (365, 693, 485, 25) action Call("livingroom")
+           ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Sat Apr 13 14:05:01 2024
+Sat Apr 20 15:46:09 2024
