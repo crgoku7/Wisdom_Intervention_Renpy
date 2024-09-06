@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/episode6.rpy", line 83: end of line expected.
+    mc "How should I confront him?":
+                                   ^
+
+Ren'Py Version: Ren'Py 8.2.3.24061702
+Sat Sep  7 04:11:30 2024
